@@ -1,0 +1,33 @@
+[package]
+name = "atsam3xxx-hal-rs"
+version = "0.1.0"
+edition = "2021"
+
+authors = ["Michael Berger <>"]
+categories = ["embedded", "hardware-support", "no-std"]
+description = "HAL for the ATSAM3Xxx family of microcontrollers"
+keywords = ["arm", "cortex-m", "atsam3x", "hal"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/emcrates-rs/atsam3xxx-hal-rs"
+documentation = "https://docs.rs/atsam3xxx-hal-rs"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package.metadata.docs.rs]
+features = ["atsam3x4c", "rt"]
+default-target = "x86_64-unknown-linux-gnu"
+
+[dependencies]
+embedded-hal = {version = ">=0.1.0"}
+atsam3x = {version = ">=0.1.0"}
+
+[features]
+default = ["atsam3x8e", "rt"]
+device-selected = []
+doc = []
+rt = ["atsam3x/rt"]
+atsam3x4c = ["atsam3x/atsam3x4c", "device-selected"]
+atsam3x4e = ["atsam3x/atsam3x4e", "device-selected"]
+atsam3x8c = ["atsam3x/atsam3x8c", "device-selected"]
+atsam3x8e = ["atsam3x/atsam3x8e", "device-selected"]
